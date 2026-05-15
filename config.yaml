@@ -1,0 +1,37 @@
+dataset:
+  train_dir: data/train
+  test_dir: data/test
+  num_classes: 7
+  image_size: 48
+  classes:
+    - happiness
+    - neutral
+    - sadness
+    - anger
+    - surprise
+    - disgust
+    - fear
+
+training:
+  batch_size: 64
+  epochs: 50
+  learning_rate: 0.001
+  early_stopping_patience: 7
+  num_workers: 4
+  model_save_path: models/best_model.pth
+
+augmentation:
+  horizontal_flip: true
+  rotation_degrees: 10
+  brightness_factor: 0.2
+
+inference:
+  model_path: models/best_model.pth
+  device: auto
+
+live:
+  camera_index: 0
+  queue_maxsize: 2
+  display_fps: true
+  face_scale_factor: 1.1
+  face_min_neighbors: 5
